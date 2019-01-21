@@ -7,8 +7,8 @@ import { UsersApiService } from './services/users-api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'TaxBack';
-  email: 'priya@gmail.com';
+  title: any = 'TaxBack';
+  email: any = 'priya@gmail.com';
   results: Object[];
   constructor(private UsersApiService: UsersApiService) {}
   userList() {

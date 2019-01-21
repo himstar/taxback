@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="form-group pull-right">
-    <input
-      type="text"
-      class="search form-control"
-      placeholder="Please enter email id"
-    />
-  </div>
   <div class="row">
+    <div class="form-group pull-right">
+      <input
+        type="text"
+        class="search form-control"
+        placeholder="Please enter email id"
+      />
+    </div>
     <table class="table">
       <thead>
         <tr>
@@ -15,15 +15,19 @@
           <th>Amount</th>
           <th>Currency</th>
           <th>TXN_Date</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
+        <tr *ngFor="let user of results">
+          <th>{{ user.id }}</th>
+          <td>{{ user.user }}</td>
+          <td>{{ user.amount }}</td>
+          <td>{{ user.currency }}</td>
+          <td>{{ user.txn_date }}</td>
+          <td><button class="btn btn-info">Details</button></td>
+          <td><button class="btn btn-danger">Delete</button></td>
         </tr>
       </tbody>
     </table>
