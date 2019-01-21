@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-success" *ngIf="status == true">
+        <strong>Success!</strong> transection deleted.
+      </div>
+      <div class="alert alert-danger" *ngIf="status!= true">
+        <strong>Error!</strong> Unable to delete a transection.
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersApiService } from './services/users-api.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +7,7 @@ import { UsersApiService } from './services/users-api.service';
 })
 export class AppComponent implements OnInit {
   title: any = 'TaxBack';
-  email: any = 'priya@gmail.com';
-  results: Object[];
-  constructor(private UsersApiService: UsersApiService) {}
-  userList() {
-    console.log(this.email);
-    this.UsersApiService.getUsers(this.email).subscribe(data => {
-      this.results = data.json();
-      console.log(this.results);
-    });
-  }
+  constructor() { }
   ngOnInit() {
-    this.userList();
   }
 }

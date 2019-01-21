@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="alert alert-danger" *ngIf="amount.touched && amount.invalid">
+      <strong>Error!</strong> Please enter a valid amount.
+    </div>
+    <div class="alert alert-danger" *ngIf="currency.touched && currency.invalid">
+      <strong>Error!</strong> Please select a valid currency.
+    </div>
+    <div class="alert alert-danger" *ngIf="txn_date.touched && txn_date.invalid">
+      <strong>Error!</strong> Date should not be empty.
+    </div>
+    <div class="col-sm-8 col-sm-offset-2">
+      <form [(formGroup)]="addForm" (ngSubmit)="onFormSubmit()">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" placeholder="{{email}}" disabled>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Amount:</label>
+          <input type="number" class="form-control" placeholder="Please enter amount" formControlName="amount">
+        </div>
+        <div class="form-group">
+          <label for="sel1">Currency:</label>
+          <select class="form-control" formControlName="currency">
+            <option value="EUR">EUR</option>
+            <option value="INR">INR</option>
+            <option value="GBP">GBP</option>
+            <option value="USD">USD</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="pwd">txn_date:</label>
+          <input type="date" class="form-control" data-date="" data-date-format="DD MMMM YYYY" placeholder="date"
+            formControlName="txn_date">
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!addForm.valid">Update</button>
+      </form>
+    </div>
+  </div>
+</div>

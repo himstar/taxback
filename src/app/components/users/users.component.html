@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row">
+    <div class="col-sm-2 pull-right">
+      <button class="btn btn-success" [routerLink]="['/add', email]"> Add New </button>
+    </div>
     <table class="table">
       <thead>
         <tr>
@@ -10,25 +13,19 @@
           <th>TXN_Date</th>
           <th></th>
           <th></th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngIf="user">
+        <tr *ngFor="let user of results">
           <th>{{user.id}}</th>
           <td>{{user.user}}</td>
           <td>{{user.amount}}</td>
           <td>{{user.currency}}</td>
           <td>{{user.txn_date}}</td>
-          <td><button class="btn btn-success" [routerLink]="['/update', user.user, user.id ]">Update</button></td>
-          <td><button class="btn btn-danger" [routerLink]="['/delete', user.user, user.id ]">Delete</button></td>
+          <td><button class="btn btn-info" [routerLink]="['/user', user.user, user.id ]">Details</button></td>
+          <td><button class="btn btn-primary">Update</button></td>
         </tr>
       </tbody>
     </table>
-    <div class="col-sm-12" *ngIf="!user">
-      <div class="alert alert-danger">
-        <strong>Error!</strong> user does not exist.
-      </div>
-    </div>
   </div>
 </div>
