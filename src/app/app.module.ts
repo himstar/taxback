@@ -14,17 +14,28 @@ import { UsersComponent } from './components/users/users.component';
 import { UpdateComponent } from './components/update/update.component';
 import { DeleteComponent } from './components/delete/delete.component';
 import { AddComponent } from './components/add/add.component';
+import { Error404Component } from './components/error404/error404.component';
 
 const appRoutes: Routes = [
   { path: '', component: UsersComponent },
   { path: 'add/:email', component: AddComponent },
   { path: 'user/:email/:uid', component: UserComponent },
   { path: 'update/:email/:uid', component: UpdateComponent },
-  { path: 'delete/:email/:uid', component: DeleteComponent }
+  { path: 'delete/:email/:uid', component: DeleteComponent },
+  { path: '404', component: Error404Component },
+  { path: '**', redirectTo: '404' }
 ];
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, UsersComponent, UpdateComponent, DeleteComponent, AddComponent],
+  declarations: [
+    AppComponent,
+    UserComponent,
+    UsersComponent,
+    UpdateComponent,
+    DeleteComponent,
+    AddComponent,
+    Error404Component
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -36,4 +47,4 @@ const appRoutes: Routes = [
   providers: [UsersApiService, ApiUrlService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

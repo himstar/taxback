@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-2 pull-right">
-      <button class="btn btn-success" [routerLink]="['/add', email]"> Add New </button>
+      <button class="btn btn-success" [routerLink]="['/add', email]">
+        Add New
+      </button>
     </div>
     <table class="table">
       <thead>
@@ -12,18 +14,23 @@
           <th>Currency</th>
           <th>TXN_Date</th>
           <th></th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of results">
-          <th>{{user.id}}</th>
-          <td>{{user.user}}</td>
-          <td>{{user.amount}}</td>
-          <td>{{user.currency}}</td>
-          <td>{{user.txn_date}}</td>
-          <td><button class="btn btn-info" [routerLink]="['/user', user.user, user.id ]">Details</button></td>
-          <td><button class="btn btn-primary">Update</button></td>
+          <th>{{ user.id }}</th>
+          <td>{{ user.user }}</td>
+          <td>{{ user.amount }}</td>
+          <td>{{ user.currency }}</td>
+          <td>{{ user.txn_date }}</td>
+          <td>
+            <button
+              class="btn btn-info"
+              [routerLink]="['/user', user.user, user.id]"
+            >
+              Details
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
